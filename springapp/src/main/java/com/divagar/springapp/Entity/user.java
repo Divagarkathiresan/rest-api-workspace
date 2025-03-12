@@ -2,7 +2,7 @@ package com.divagar.springapp.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 @Entity
-@Table(name="user" , uniqueConstraints = {@UniqueConstraint(columnNames = "user_email")})
+@Table(name="user")
 
 public class user {
     @Id
@@ -10,7 +10,7 @@ public class user {
     private int id;
     @Column(name = "user_name")
     private String name;
-    @Column(name = "user_email" , unique = true)
+    @Column(name = "user_email")
     private String email;
     // @JsonIgnore
     @Column(name = "user_password")
