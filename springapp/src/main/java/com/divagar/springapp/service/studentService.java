@@ -23,4 +23,21 @@ public class studentService
 	{
 		return stdRepo.findAll();
 	}
+
+	public student updateStudent(Long id,student S)
+	{
+		return stdRepo.findById(id)
+		.map(e->{
+			if(S.getName() != null)
+			{
+				e.setName(S.getName());
+			}
+			if(S.getCity() != null)
+			{
+				e.setCity(S.getCity());
+			}
+			return stdRepo.save(e);
+		}).orElseThrow(()->new RuntimeException("Id not valid"));
+
+	}
 }

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,5 +31,11 @@ public class studentController
 	public ResponseEntity<List<student>> getAllStudents()
 	{
 		return new ResponseEntity<>(stdService.getAllStudents(),HttpStatus.OK);
+	}
+
+	@PutMapping("/put/student/{id}")
+	public ResponseEntity<?> updateStudent(@PathVariable Long id,@RequestBody student S)
+	{
+		return new ResponseEntity<>(stdService.updateStudent(id,S),HttpStatus.OK);
 	}
 }

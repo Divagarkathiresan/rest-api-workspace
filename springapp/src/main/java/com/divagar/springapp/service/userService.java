@@ -1,7 +1,6 @@
 package com.divagar.springapp.service;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -60,16 +59,17 @@ public class userService {
         }
     }
 
+
     public List<user> Sorting(String field)
     {
         Sort sort = Sort.by(Sort.Direction.DESC,field);
         return obj.findAll(sort);
     }
 
+    
     public List<user> Pagination(int pagenumber,int pagesize)
     {
         Pageable page = PageRequest.of(pagenumber,pagesize);
         return obj.findAll(page).getContent();
     }
-
 }

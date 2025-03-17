@@ -11,7 +11,6 @@ public class student
 	private Long id;
 	@Column(name = "student_name")
 	private String name;
-
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "city_id" , referencedColumnName = "id")
 	private City city;
