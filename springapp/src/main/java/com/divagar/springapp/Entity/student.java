@@ -1,5 +1,7 @@
 package com.divagar.springapp.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class student
 	private String name;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "city_id" , referencedColumnName = "id")
+	@JsonManagedReference
 	private City city;
 
 
@@ -43,7 +46,5 @@ public class student
 
 	public student() {
 	}
-
-	
 
 }

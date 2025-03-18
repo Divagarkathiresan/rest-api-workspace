@@ -1,5 +1,7 @@
 package com.divagar.springapp.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class City
 	private String name;
 
 	@OneToOne(mappedBy = "city")
+	@JsonBackReference
 	private student std;
 
 	public Long getId() {

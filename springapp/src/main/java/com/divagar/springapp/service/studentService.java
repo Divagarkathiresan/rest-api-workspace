@@ -38,6 +38,18 @@ public class studentService
 			}
 			return stdRepo.save(e);
 		}).orElseThrow(()->new RuntimeException("Id not valid"));
+	}
 
+	public boolean deleteStudent(Long id)
+	{
+		if(stdRepo.existsById(id))
+		{
+			stdRepo.deleteById(id);
+			return true;
+		}
+		else
+		{
+			throw new RuntimeException("Id not found");
+		}
 	}
 }
